@@ -7,3 +7,30 @@ IPADDR=192.168.81.102
 NETMASK=255.255.255.0
 GATEWAY=192.168.92.2
 DNS1=8.8.8.8
+
+# Turn off the firewall
+systemctl stop firewalld
+systemctl disable firewalld
+
+# Close selinux
+sed -i's/enforcing/disabled/' /etc/selinux/config # permanent
+setenforce 0 # Temporary
+
+# Close swap
+swapoff -a # Temporary
+sed -ri's/.*swap.*/#&/' /etc/fstab # permanent
+
+# Set the host name according to the plan
+hostnamectl set-hostname <hostname>
+
+
+# Pass the bridged IPv4 traffic to the iptables chain
+cat> /etc/sysctl.d/k8s.conf << EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl --system # effective
+
+# Time synchronization
+yum install ntpdate -y
+ntpdate time.windows.com
