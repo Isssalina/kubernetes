@@ -27,9 +27,9 @@ hostnamectl set-hostname <hostname>
 
 # Add hosts in master
 cat >> /etc/hosts << EOF
-192.168.44.146 k8smaster
-192.168.44.145 k8snode1
-192.168.44.144 k8snode2
+192.168.81.100 k8smaster
+192.168.81.101 k8snode1
+192.168.81.102 k8snode2
 EOF
 
 # Pass the bridged IPv4 traffic to the iptables chain
