@@ -1,0 +1,40 @@
+#Install Docker/kubeadm/kubelet on all nodes
+
+Kubernetes default CRI (container runtime) is Docker, so install Docker first.
+
+# Install Docker
+-----
+$ wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+$ yum -y install docker-ce-18.06.1.ce-3.el7
+$ systemctl enable docker && systemctl start docker
+$ docker --version
+Docker version 18.06.1-ce, build e68fc7a
+-----
+
+-----
+$ cat> /etc/docker/daemon.json << EOF
+{
+  "registry-mirrors": ["https://b9pmyelo.mirror.aliyuncs.com"]
+}
+EOF
+```
+
+# Add Alibaba Cloud YUM software source
+-----
+$ cat> /etc/yum.repos.d/kubernetes.repo << EOF
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+-----
+
+# Install kubeadm, kubelet and kubectl
+Since the version is updated frequently, the version number is specified here for deployment:
+-----
+$ yum install -y kubelet-1.18.0 kubeadm-1.18.0 kubectl-1.18.0
+$ systemctl enable kubelet
+-----
