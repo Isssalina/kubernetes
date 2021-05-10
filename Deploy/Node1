@@ -1,0 +1,15 @@
+#Join Kubernetes Node
+
+Execute on Node.
+
+# To add a new node to the cluster, execute the kubeadm join command output in kubeadm init:
+# This is just an example, the specific code comes from the system prompt after deployment
+-----
+$ kubeadm join 192.168.1.11:6443 --token esce21.q6hetwm8si29qxwn \
+     --discovery-token-ca-cert-hash sha256:00603a05805807501d7181c3d60b478788408cfe6cedefedb1f97569708be9c5
+-----
+
+# The default token is valid for 24 hours. When it expires, the token is no longer available. At this time, you need to re-create the token, the operation is as follows:
+-----
+$ kubeadm token create --print-join-command
+-----
