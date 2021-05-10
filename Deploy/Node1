@@ -13,3 +13,9 @@ $ kubeadm join 192.168.1.11:6443 --token esce21.q6hetwm8si29qxwn \
 -----
 $ kubeadm token create --print-join-command
 -----
+
+
+# Deploy CNI network plug-in
+wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
