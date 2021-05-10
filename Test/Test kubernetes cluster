@@ -1,0 +1,11 @@
+# Test kubernetes cluster
+
+Create a pod in the Kubernetes cluster and verify that it is running normally:
+
+-----
+$ kubectl create deployment nginx --image=nginx
+$ kubectl expose deployment nginx --port=80 --type=NodePort
+$ kubectl get pod,svc
+-----
+
+Visit address: http://NodeIP:Port
