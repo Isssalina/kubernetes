@@ -17,7 +17,7 @@ This part of the code has been written in the Install kubernetes folder.
 This part of the code has been written in the deploy folder.
 
 # The deployment process can use the following code to view the image pull process
-The test code has been written in the Test folder
+The test code has been written in the Test folder.
 
 # yaml file
 In k8s cluster, resource management and resource object arrangement and deployment can be solved through declaration style (YAML) files, that is, the operations on resource objects can be edited into YAML format files. We call this file a resource manifest file. The kubectl command can directly use the resource manifest file to arrange and deploy a large number of resource objects.  
