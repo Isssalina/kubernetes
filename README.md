@@ -1,5 +1,5 @@
 # Kubernetes Installation Steps
-## kubernetes Installation Requirements
+## Kubernetes Installation Requirements
 
 Before starting, the following conditions must be met to deploy Kubernetes cluster machines:
 
@@ -35,7 +35,7 @@ Kubernetes is a master-slave distributed architecture, mainly composed of Master
 * kubectl: used to interact with API Server through the command line, and operate Kubernetes, to realize the addition, deletion, modification, and other operations of various resources in the cluster.  
 * Add-on: It is an extension of the core functions of Kubernetes, such as adding network and network strategy capabilities.  
 
-## kubernetes core components
+## Kubernetes Core Components
 Kubernetes is mainly composed of the following core components:
 
 * etcd saves the state of the entire cluster;  
