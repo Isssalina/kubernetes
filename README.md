@@ -1,3 +1,12 @@
+# kubernetes
+Kubernetes is a master-slave distributed architecture, mainly composed of Master Node and Worker Node, as well as the client command line tool kubectl and other additional items.
+
+Master Node: As a control node, it manages the cluster; Master Node is composed of API Server, Scheduler, Cluster State Store and Controller-Manger Server.  
+Worker Node: As a real worker node, a container for running business applications; Worker Node includes kubelet, kube proxy and Container Runtime.  
+kubectl: used to interact with API Server through the command line, and operate Kubernetes, to realize the addition, deletion, modification, and other operations of various resources in the cluster.  
+Add-on: It is an extension of the core functions of Kubernetes, such as adding network and network strategy capabilities.  
+
+
 # kubernetes Installation requirements
 
 Before starting, the following conditions must be met to deploy Kubernetes cluster machines:
